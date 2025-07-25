@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // /** @type {import('tailwindcss').Config} */
 // export default {
 //   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -85,3 +86,13 @@ module.exports = {
 //     }
 //   }
 // }
+=======
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2

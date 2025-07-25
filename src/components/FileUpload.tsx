@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useCallback, useState } from 'react';
 // import { Upload, File, Hash, Clock, CheckCircle, AlertTriangle } from 'lucide-react';
 // import { FileRecord } from '../types';
@@ -161,6 +162,10 @@
 
 import React, { useCallback, useState } from 'react';
 import { Upload, File, Hash, Clock, CheckCircle, AlertTriangle, Shield } from 'lucide-react';
+=======
+import React, { useCallback, useState } from 'react';
+import { Upload, File, Hash, Clock, CheckCircle, AlertTriangle } from 'lucide-react';
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
 import { FileRecord } from '../types';
 import { BlockchainService } from '../services/blockchainService';
 
@@ -203,6 +208,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
 
   const handleFileUpload = async (file: File) => {
     setUploading(true);
+<<<<<<< HEAD
     setUploadProgress('Initializing quantum encryption...');
 
     try {
@@ -220,6 +226,29 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
 
       onFileUploaded(fileRecord);
       setUploadProgress('SECURE_UPLOAD_COMPLETE');
+=======
+    setUploadProgress('Analyzing file...');
+
+    try {
+      // Step 1: Generate hash
+      setUploadProgress('Generating cryptographic hash...');
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Step 2: Create blockchain transaction
+      setUploadProgress('Creating blockchain transaction...');
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Step 3: Upload to blockchain
+      setUploadProgress('Recording on blockchain...');
+      const fileRecord = await BlockchainService.uploadToBlockchain(file);
+
+      // Step 4: Confirmation
+      setUploadProgress('Confirming transaction...');
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      onFileUploaded(fileRecord);
+      setUploadProgress('Upload complete!');
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
       
       setTimeout(() => {
         setUploadProgress('');
@@ -228,7 +257,11 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
       
     } catch (error) {
       console.error('Upload failed:', error);
+<<<<<<< HEAD
       setUploadProgress('UPLOAD_FAILURE: Security protocol violated');
+=======
+      setUploadProgress('Upload failed. Please try again.');
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
       setTimeout(() => {
         setUploadProgress('');
         setUploading(false);
@@ -237,6 +270,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="relative bg-dark-800 rounded-xl border border-dark-700 p-8 glow-border">
       <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-neon-blue"></div>
       <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-neon-purple"></div>
@@ -252,14 +286,29 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
         <p className="text-metal-400 font-mono text-sm tracking-wider">
           BLOCKCHAIN-VERIFIED FILE INTEGRITY PROTOCOL
         </p>
+=======
+    <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+      <div className="text-center mb-6">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mb-4">
+          <Upload className="w-8 h-8 text-white" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">Secure File Upload</h2>
+        <p className="text-gray-600">Upload files with blockchain-verified integrity</p>
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
       </div>
 
       <div
         className={`relative border-2 border-dashed rounded-lg p-8 transition-all ${
           dragActive 
+<<<<<<< HEAD
             ? 'border-neon-blue bg-dark-700/50 shadow-glow' 
             : 'border-dark-600 hover:border-neon-blue/50'
         } ${uploading ? 'pointer-events-none opacity-90' : ''}`}
+=======
+            ? 'border-blue-500 bg-blue-50' 
+            : 'border-gray-300 hover:border-gray-400'
+        } ${uploading ? 'pointer-events-none opacity-75' : ''}`}
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
@@ -267,6 +316,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
       >
         {uploading ? (
           <div className="text-center">
+<<<<<<< HEAD
             <div className="relative inline-flex items-center justify-center w-12 h-12 bg-dark-700 rounded-full mb-4">
               <div className="absolute inset-0 bg-radium-400/10 rounded-full animate-pulse"></div>
               <Hash className="w-6 h-6 text-radium-400" />
@@ -282,10 +332,20 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
                 className="bg-gradient-to-r from-neon-blue to-neon-purple h-full rounded-full transition-all duration-300"
                 style={{ width: `${uploadProgress.includes('COMPLETE') ? '100%' : '75%'}` }}
               ></div>
+=======
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 rounded-full mb-4 animate-pulse">
+              <Hash className="w-6 h-6 text-blue-600" />
+            </div>
+            <p className="text-lg font-medium text-gray-900 mb-2">Processing File</p>
+            <p className="text-sm text-gray-600 mb-4">{uploadProgress}</p>
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div className="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-300 animate-pulse w-3/4"></div>
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
             </div>
           </div>
         ) : (
           <div className="text-center">
+<<<<<<< HEAD
             <File className="mx-auto h-12 w-12 text-metal-600 mb-4" />
             <div className="mb-6">
               <p className="text-lg font-mono text-neon-blue mb-1 tracking-wider">
@@ -293,6 +353,15 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
               </p>
               <p className="text-xs font-mono text-metal-500 tracking-wider">
                 ALL_FILE_TYPES • MAX_10MB
+=======
+            <File className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+            <div className="mb-4">
+              <p className="text-lg font-medium text-gray-900">
+                Drop files here or click to browse
+              </p>
+              <p className="text-sm text-gray-500 mt-1">
+                Supports all file types • Maximum 10MB
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
               </p>
             </div>
             <input
@@ -304,6 +373,7 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
             />
             <label
               htmlFor="file-upload"
+<<<<<<< HEAD
               className="relative inline-flex items-center px-6 py-3 bg-dark-700 text-neon-blue font-mono text-sm tracking-wider rounded-lg border border-neon-blue/30 hover:bg-neon-blue/10 hover:shadow-glow-sm transition-all cursor-pointer group"
             >
               <span className="relative z-10 flex items-center">
@@ -311,11 +381,18 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
                 INITIATE_UPLOAD
               </span>
               <span className="absolute inset-0 border border-neon-blue rounded-lg translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform"></span>
+=======
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-medium rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all cursor-pointer"
+            >
+              <Upload className="w-4 h-4 mr-2" />
+              Choose File
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
             </label>
           </div>
         )}
       </div>
 
+<<<<<<< HEAD
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono tracking-wider">
         <div className="flex items-center text-radium-400">
           <Shield className="w-4 h-4 mr-2" />
@@ -333,6 +410,22 @@ export const FileUpload: React.FC<FileUploadProps> = ({ onFileUploaded }) => {
 
       <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-neon-purple"></div>
       <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-neon-blue"></div>
+=======
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+        <div className="flex items-center text-green-600">
+          <CheckCircle className="w-4 h-4 mr-2" />
+          SHA-256 Hashing
+        </div>
+        <div className="flex items-center text-green-600">
+          <CheckCircle className="w-4 h-4 mr-2" />
+          Blockchain Logging
+        </div>
+        <div className="flex items-center text-green-600">
+          <CheckCircle className="w-4 h-4 mr-2" />
+          Digital Signatures
+        </div>
+      </div>
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
     </div>
   );
 };

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React, { useState, useCallback } from 'react';
 // import { Shield, Search, CheckCircle, XCircle, AlertTriangle, Hash, Clock, User } from 'lucide-react';
 // import { VerificationResult } from '../types';
@@ -214,6 +215,8 @@
 
 
 
+=======
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
 import React, { useState, useCallback } from 'react';
 import { Shield, Search, CheckCircle, XCircle, AlertTriangle, Hash, Clock, User } from 'lucide-react';
 import { VerificationResult } from '../types';
@@ -274,6 +277,7 @@ export const FileVerification: React.FC = () => {
   };
 
   return (
+<<<<<<< HEAD
     <div className="relative bg-dark-800 rounded-xl border border-dark-700 p-8 glow-border">
       {/* Corner accents */}
       <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-neon-blue"></div>
@@ -300,6 +304,23 @@ export const FileVerification: React.FC = () => {
             ? 'border-neon-blue bg-dark-700/50 shadow-glow' 
             : 'border-dark-600 hover:border-neon-blue/50'
         } ${verifying ? 'pointer-events-none opacity-90' : ''}`}
+=======
+    <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+      <div className="text-center mb-6">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-teal-600 rounded-full mb-4">
+          <Shield className="w-8 h-8 text-white" />
+        </div>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">File Verification</h2>
+        <p className="text-gray-600">Verify file integrity against blockchain records</p>
+      </div>
+
+      <div
+        className={`relative border-2 border-dashed rounded-lg p-8 transition-all ${
+          dragActive 
+            ? 'border-green-500 bg-green-50' 
+            : 'border-gray-300 hover:border-gray-400'
+        } ${verifying ? 'pointer-events-none opacity-75' : ''}`}
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
         onDragEnter={handleDrag}
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
@@ -307,6 +328,7 @@ export const FileVerification: React.FC = () => {
       >
         {verifying ? (
           <div className="text-center">
+<<<<<<< HEAD
             <div className="relative inline-flex items-center justify-center w-12 h-12 bg-dark-700 rounded-full mb-4">
               <div className="absolute inset-0 bg-neon-blue/10 rounded-full animate-pulse"></div>
               <Search className="w-6 h-6 text-neon-blue animate-spin" />
@@ -327,6 +349,23 @@ export const FileVerification: React.FC = () => {
               </p>
               <p className="text-xs font-mono text-metal-500 tracking-wider">
                 COMPARE_AGAINST_BLOCKCHAIN
+=======
+            <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4 animate-spin">
+              <Search className="w-6 h-6 text-green-600" />
+            </div>
+            <p className="text-lg font-medium text-gray-900 mb-2">Verifying File</p>
+            <p className="text-sm text-gray-600">Checking blockchain records...</p>
+          </div>
+        ) : (
+          <div className="text-center">
+            <Search className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+            <div className="mb-4">
+              <p className="text-lg font-medium text-gray-900">
+                Drop file to verify integrity
+              </p>
+              <p className="text-sm text-gray-500 mt-1">
+                Compare against blockchain records
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
               </p>
             </div>
             <input
@@ -338,6 +377,7 @@ export const FileVerification: React.FC = () => {
             />
             <label
               htmlFor="verify-upload"
+<<<<<<< HEAD
               className="relative inline-flex items-center px-6 py-3 bg-dark-700 text-neon-blue font-mono text-sm tracking-wider rounded-lg border border-neon-blue/30 hover:bg-neon-blue/10 hover:shadow-glow-sm transition-all cursor-pointer group"
             >
               <span className="relative z-10 flex items-center">
@@ -345,11 +385,18 @@ export const FileVerification: React.FC = () => {
                 INITIATE_VERIFICATION
               </span>
               <span className="absolute inset-0 border border-neon-blue rounded-lg translate-x-1 translate-y-1 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform"></span>
+=======
+              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-green-500 to-teal-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-teal-700 transition-all cursor-pointer"
+            >
+              <Search className="w-4 h-4 mr-2" />
+              Select File to Verify
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
             </label>
           </div>
         )}
       </div>
 
+<<<<<<< HEAD
       {/* Verification Result */}
       {verificationResult && (
         <div className="mt-8">
@@ -380,22 +427,59 @@ export const FileVerification: React.FC = () => {
                   {verificationResult.isValid 
                     ? 'FILE_INTEGRITY_CONFIRMED' 
                     : 'TAMPER_DETECTED_OR_FILE_NOT_FOUND'
+=======
+      {verificationResult && (
+        <div className="mt-6">
+          <div className={`rounded-lg p-6 border-2 ${
+            verificationResult.isValid 
+              ? 'bg-green-50 border-green-200' 
+              : 'bg-red-50 border-red-200'
+          }`}>
+            <div className="flex items-center mb-4">
+              {verificationResult.isValid ? (
+                <CheckCircle className="w-8 h-8 text-green-600 mr-3" />
+              ) : (
+                <XCircle className="w-8 h-8 text-red-600 mr-3" />
+              )}
+              <div>
+                <h3 className={`text-lg font-bold ${
+                  verificationResult.isValid ? 'text-green-900' : 'text-red-900'
+                }`}>
+                  {verificationResult.isValid ? 'File Verified' : 'Verification Failed'}
+                </h3>
+                <p className={`text-sm ${
+                  verificationResult.isValid ? 'text-green-700' : 'text-red-700'
+                }`}>
+                  {verificationResult.isValid 
+                    ? 'File integrity confirmed by blockchain' 
+                    : 'File has been tampered with or not found'
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
                   }
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+<<<<<<< HEAD
               <div className="space-y-2">
                 <div className="flex items-center text-metal-400 font-mono text-xs tracking-wider">
                   <Hash className="w-3 h-3 mr-2 text-neon-blue" />
                   <span>CURRENT_HASH:</span>
                 </div>
                 <code className="block bg-dark-900 p-3 rounded text-xs font-mono break-all text-metal-400 border border-dark-600">
+=======
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Hash className="w-4 h-4 mr-2 text-gray-500" />
+                  <span className="font-medium">Current Hash:</span>
+                </div>
+                <code className="block bg-gray-100 p-2 rounded text-xs break-all">
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
                   {verificationResult.currentHash}
                 </code>
               </div>
 
+<<<<<<< HEAD
               <div className="space-y-2">
                 <div className="flex items-center text-metal-400 font-mono text-xs tracking-wider">
                   <Hash className="w-3 h-3 mr-2 text-neon-purple" />
@@ -403,11 +487,21 @@ export const FileVerification: React.FC = () => {
                 </div>
                 <code className="block bg-dark-900 p-3 rounded text-xs font-mono break-all text-metal-400 border border-dark-600">
                   {verificationResult.originalHash || 'NOT_FOUND'}
+=======
+              <div className="space-y-3">
+                <div className="flex items-center">
+                  <Hash className="w-4 h-4 mr-2 text-gray-500" />
+                  <span className="font-medium">Original Hash:</span>
+                </div>
+                <code className="block bg-gray-100 p-2 rounded text-xs break-all">
+                  {verificationResult.originalHash || 'Not found'}
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
                 </code>
               </div>
             </div>
 
             {verificationResult.blockchainRecord && (
+<<<<<<< HEAD
               <div className="mt-6 pt-5 border-t border-dark-600">
                 <h4 className="font-medium font-mono text-neon-blue tracking-wider mb-3">BLOCKCHAIN_RECORD:</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs font-mono">
@@ -422,12 +516,29 @@ export const FileVerification: React.FC = () => {
                   <div className="flex items-center text-metal-400">
                     <Shield className="w-3 h-3 mr-2 text-radium-400" />
                     <span>SIGNATURES: {verificationResult.blockchainRecord.signatures.length}</span>
+=======
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <h4 className="font-medium text-gray-900 mb-2">Blockchain Record:</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                  <div className="flex items-center">
+                    <Clock className="w-3 h-3 mr-1 text-gray-500" />
+                    <span>Uploaded: {formatTimestamp(verificationResult.blockchainRecord.uploadTimestamp)}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <User className="w-3 h-3 mr-1 text-gray-500" />
+                    <span>By: {verificationResult.blockchainRecord.uploader.substring(0, 10)}...</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Shield className="w-3 h-3 mr-1 text-gray-500" />
+                    <span>Signatures: {verificationResult.blockchainRecord.signatures.length}</span>
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
                   </div>
                 </div>
               </div>
             )}
 
             {verificationResult.tamperDetails && (
+<<<<<<< HEAD
               <div className="mt-6 pt-5 border-t border-red-400/30">
                 <div className="flex items-start">
                   <div className="bg-red-400/10 p-1.5 rounded-md mr-3">
@@ -439,6 +550,17 @@ export const FileVerification: React.FC = () => {
                       {verificationResult.tamperDetails.map((detail, index) => (
                         <li key={index} className="flex items-start">
                           <span className="inline-block w-1.5 h-1.5 bg-red-400 rounded-full mt-1.5 mr-2 flex-shrink-0"></span>
+=======
+              <div className="mt-4 pt-4 border-t border-red-200">
+                <div className="flex items-start">
+                  <AlertTriangle className="w-4 h-4 text-red-600 mr-2 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-medium text-red-900 mb-2">Tampering Detected:</h4>
+                    <ul className="text-sm text-red-700 space-y-1">
+                      {verificationResult.tamperDetails.map((detail, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="inline-block w-1 h-1 bg-red-600 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
                           {detail}
                         </li>
                       ))}
@@ -450,10 +572,13 @@ export const FileVerification: React.FC = () => {
           </div>
         </div>
       )}
+<<<<<<< HEAD
 
       {/* Bottom corner accents */}
       <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-neon-purple"></div>
       <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-neon-blue"></div>
+=======
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
     </div>
   );
 };

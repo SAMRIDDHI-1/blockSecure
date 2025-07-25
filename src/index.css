@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+<<<<<<< HEAD
 
 
 /* Cyberpunk base styles */
@@ -50,3 +51,5 @@ body {
   .glow-text {
     text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
   }
+=======
+>>>>>>> c2a80e6e7bcb104d97d520018a206e80bfa305b2
